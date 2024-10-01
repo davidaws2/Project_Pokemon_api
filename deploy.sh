@@ -9,9 +9,9 @@ sudo yum install python3 python3-pip -y
 # Install Git
 sudo yum install git -y
 
-# Clone the repository (replace with your actual repository URL)
+# Clone the repository
 git clone https://github.com/davidaws2/Project_Pokemon_api
-cd pokemon-collector
+cd Project_Pokemon_api
 
 # Install Python dependencies
 pip3 install -r requirements.txt
