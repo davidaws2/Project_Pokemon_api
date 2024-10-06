@@ -1,0 +1,106 @@
+                                                            instructions work step by step -
+
+                               1. open aws-canvas.
+
+                               AWS canvas   - choose -> 1. [CF]-Lab - Sandbox Environment.
+                               2. start the lab.
+                               3. verify you start the lab (green light in AWS (in the left upper side of the window)).
+                               4. open AWS Details.
+                               5. choose AWS CLI: show.
+                               6. copy the default details of the lab (paste it to notepad).
+                                     paste it like this --> Copy and paste the following into ~/.aws/credentials
+
+
+                               2. open the ubuntu or your linux enverment. 
+
+                               once it open - choose -> 
+                               1. open your terminal.
+                               2. once the terminal open write - sudo -i (enter your password to get inside the root).
+                               3. verify that you are in root (you will see the name of root in the start).
+                               4. in root --> write -> nano ~/.aws/credentials
+                               5. in the nano ~/.aws/credentials file - write -
+                                     paste the details from the notepad (AWS CLI: show)
+                               6. save the nano file.
+
+
+                               3. to verifty that you are in the aws cli via linux.
+
+                               in the linux  - choose -> 
+                               1. in the command line - we will check 1 parameter -
+                                     
+                                     - this command line will show Your VPCs -
+                                          aws ec2 describe-vpcs --region us-west-2 --filters Name=isDefault,Values=true --query "Vpcs[0].VpcId" --output text
+                                            copy the - VPC ID - (it will look like "vpc-xxxxxxxxxxxxxxxxx")
+
+
+                               2. open a web page and go to - https://github.com/davidaws2/Project_Pokemon_api/blob/main/build_ec2.sh
+                                          copy the code in -->  build_ec2.sh    -->  to your to your linux via nano or other program you use (git or visual studio).
+                                          save the file as -->  build_ec2.sh    -->  in your linux (save it in a place that you know , we gonna use it later).
+                                          
+                                          change mode the file (it will give us the running option to the file)-->  build_ec2.sh 
+                                            - write in your linux -
+                                              chmod 744 build_ec2.sh
+                                          
+                               3. run the file build_ec2.sh in linux -
+                                          ./build_ec2.sh
+
+
+                               4. the ruuning file ./build_ec2.sh --> ask you to insert your VPC (you take it from the check VPCs in step 3.1 or you can see on the screen).
+                                          enter the VPCs to the file
+
+                               5. ./build_ec2.sh build a EC2 instance in AWS environment.
+                                          is will show you the INSTANCE_NAME' and the status of running.
+                                          it will give you the option to SSH into the instance.
+
+                               6. Use the ssh option and connect to the instance that was created by the file ./build_ec2.sh.
+                                          use the ssh connect to the instance.
+
+                               7. you will get a message that ask you if you recognize the area and accecpt.
+                                          choose yes to get in to the instance (just press yes).
+
+                               8. now you are inside the new ec2 instance (the new EC2 instance that was create by the file ./build_ec2.sh)
+
+                               9. check the file in the instance -
+                                          write in the command line  ---> ls -la 
+                                          it will list the files inside the instance
+
+                               10. open a web page and go to - https://github.com/davidaws2/Project_Pokemon_api/blob/main/deploy.sh
+                                          copy the code in -->  deploy.sh    -->  to your to your linux via nano or other program you use (git or visual studio).
+                                          save the file as -->  deploy.sh    -->  in your linux (save it in a place that you know in the instance)
+                                          
+                                          to check the file exist --> write in the command line  ---> ls -la
+                                          you need to see it in your files
+                                          
+                                          change mode the file (it will give us the running option to the file)--> deploy.sh  
+                                            - write in your linux -  
+                                              chmod 744 deploy.sh
+
+                               11. run the file deploy.sh in linux -
+                                          ./deploy.sh
+
+                               12. once you running the deploy.sh file , few thing will happen -
+                                          1. the system will update system packages.
+                                          2. the system will install python3 and python3 pip.
+                                          3. the system will install git and will upload files from https://github.com/davidaws2/Project_Pokemon_api
+                                          4. the system will insatll requirements.txt.
+                                          5. the system will run a python file name - pokiapi.py
+
+
+                               13. pokiapi.py = the file ask you if you want to play and draw pokemon
+                                       yes = draw a pokemon and show name , type and ability
+                                       no  = exit from the game
+                                       if the pokemon was draw in the past it will only show its details from the database
+
+                               14. now in the instance will be a folder name - Project_Pokemon_api
+
+                                       in this folder Project_Pokemon_api there is all the details from the upload https://github.com/davidaws2/Project_Pokemon_api
+
+                               15. we create a database inside the instance
+                                       the pokemon will be store in a database name --> pokemon_collection.json
+                                       data base = pokemon_collection.json
+
+                               16. to verfiy that you done eerything fine.
+                                       write -  ls -la                     -------> verify that you see a folder name Project_Pokemon_api
+                                       wrire - cd Project_Pokemon_api      -------> verify that you see a file name pokemon_collection.json
+
+                                                            This is it , you done it !
